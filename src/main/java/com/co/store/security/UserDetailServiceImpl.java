@@ -22,6 +22,9 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	@Autowired
 	private IUserDAO userDao;
 	
+	/**
+	 *synchronize login with db 
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(username);

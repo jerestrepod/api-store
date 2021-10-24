@@ -29,12 +29,20 @@ public class TestingController {
 	private IProductService productService;
 	
 	
-	
+	/**
+	 * Get method bring all products in db
+	 * @return
+	 */
 	@GetMapping("/allProducts")
 	public ResponseEntity<List<Product>> allProducts() {
 		return ResponseEntity.ok(productService.allProducts());
 	}
 	
+	/**
+	 * Put method get a product id, add this to count in shopping car and decrease this to stock product
+	 * @param productId
+	 * @return
+	 */
 	@PutMapping(value="/addProduct/{productId}")
 	public ResponseEntity<String> addProduct(@PathVariable("productId") Long productId) {
 		String result = productService.addProduct(productId);
@@ -44,7 +52,11 @@ public class TestingController {
 			return ResponseEntity.ok(result);
 		}
 	}
-	
+	/**
+	 * Put method get a product id, decrease this to  in shopping car and count this to stock product
+	 * @param productId
+	 * @return
+	 */
 	@PutMapping(value="/removeProduct/{productId}")
 	public ResponseEntity<String> removeProduct(@PathVariable("productId") Long productId) {
 		String result = productService.removeProduct(productId);
@@ -54,7 +66,11 @@ public class TestingController {
 			return ResponseEntity.ok(result);
 		}
 	}
-	
+	/**
+	 * Just update the specified product
+	 * @param product
+	 * @return
+	 */
 	@PutMapping("/updateProduct")
 	public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
 		Product result = productService.updateProduct(product);

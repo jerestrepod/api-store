@@ -35,6 +35,12 @@ public class PrivateController {
 	@Autowired
 	private IProductService productService;
 	
+	/**
+	 * GET method that is reach when login process is success use security config from spring-security
+	 * @param auth
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/index")
 	public String index(Authentication auth,HttpSession session) {
 		String username = auth.getName();
@@ -46,11 +52,20 @@ public class PrivateController {
 		return "index";
 	}
 	
+	/**
+	 * Get method bring all products in db
+	 * @return
+	 */
 	@GetMapping("/allProducts")
 	public ResponseEntity<List<Product>> allProducts() {
 		return ResponseEntity.ok(productService.allProducts());
 	}
 	
+	/**
+	 * Put method get a product id, add this to count in shopping car and decrease this to stock product
+	 * @param productId
+	 * @return
+	 */
 	@PutMapping(value="/addProduct/{productId}")
 	public ResponseEntity<String> addProduct(@PathVariable("productId") Long productId) {
 		String result = productService.addProduct(productId);
@@ -61,6 +76,11 @@ public class PrivateController {
 		}
 	}
 	
+	/**
+	 * Put method get a product id, decrease this to  in shopping car and count this to stock product
+	 * @param productId
+	 * @return
+	 */
 	@PutMapping(value="/removeProduct/{productId}")
 	public ResponseEntity<String> removeProduct(@PathVariable("productId") Long productId) {
 		String result = productService.removeProduct(productId);
@@ -71,6 +91,11 @@ public class PrivateController {
 		}
 	}
 	
+	/**
+	 * Just update the specified product
+	 * @param product
+	 * @return
+	 */
 	@PutMapping("/updateProduct")
 	public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
 		Product result = productService.updateProduct(product);

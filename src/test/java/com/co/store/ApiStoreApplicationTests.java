@@ -20,6 +20,9 @@ class ApiStoreApplicationTests {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	/**
+	 * test for register encode password, its specially for a integration test
+	 */
 	@Test
 	void registerEncoderUserTest() {
 		User user = new User();

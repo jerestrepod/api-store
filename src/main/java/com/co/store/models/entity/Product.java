@@ -50,7 +50,7 @@ public class Product implements Serializable{
 	private int stock;
 	
 	/**
-	 * represent if the product is selected in the shopping car or not 1 - 0
+	 * represent if the product is add to the shopping car
 	 */
 	private int inShoppingCar;
 	
