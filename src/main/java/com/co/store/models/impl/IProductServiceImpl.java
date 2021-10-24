@@ -37,7 +37,7 @@ public class IProductServiceImpl implements IProductService {
 				return Constants.NO_STOCK_PRODUCT;
 			}
 			updateProduct.setStock(updateProduct.getStock() - 1);
-			updateProduct.setInShoppingCar(1);
+			updateProduct.setInShoppingCar(updateProduct.getInShoppingCar() + 1);
 			productDao.save(updateProduct);
 			return Constants.ADD_PRODUCT_OK;
 		} else {
@@ -56,7 +56,7 @@ public class IProductServiceImpl implements IProductService {
 				return Constants.NO_PRODUCT_IN_SHOPPING_CAR;
 			}
 			updateProduct.setStock(updateProduct.getStock() + 1);
-			updateProduct.setInShoppingCar(0);
+			updateProduct.setInShoppingCar(updateProduct.getInShoppingCar() - 1);
 			productDao.save(updateProduct);
 			return Constants.REMOVE_PRODUCT_OK;
 		} else {
