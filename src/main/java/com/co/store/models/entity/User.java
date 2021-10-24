@@ -27,19 +27,19 @@ public class User implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	/**
 	 * represent user email
 	 */
-	String email;
+	private String email;
 	/**
 	 * represent user name
 	 */
-	String username;
+	private String username;
 	/**
 	 * represent user password
 	 */
-	String password;
+	private String password;
 
 	/**
 	 * @return the id

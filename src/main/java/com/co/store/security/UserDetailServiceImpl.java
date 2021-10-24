@@ -1,7 +1,5 @@
 package com.co.store.security;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User.UserBuilder;
