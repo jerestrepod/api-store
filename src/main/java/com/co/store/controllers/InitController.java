@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class InitController {
+	
+	/**
+	 * GET method for init the app, just redirect for the root page 
+	 * that have navegation option -- login -- register
+	 * @return
+	 */
 	@GetMapping("/")
 	public String start() {
 		return "start";

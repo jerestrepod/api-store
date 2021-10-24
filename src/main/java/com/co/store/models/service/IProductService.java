@@ -34,5 +34,12 @@ public interface IProductService {
 	 * @param product
 	 * @return
 	 */
+	public Product registerProduct(Product product);
+	
+	
+	/**
+	 * @param product
+	 * @return
+	 */
 	public String removeProduct(Long product);
 }

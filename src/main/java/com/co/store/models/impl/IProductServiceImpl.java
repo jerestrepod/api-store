@@ -83,5 +83,11 @@ public class IProductServiceImpl implements IProductService {
 		}
 		
 	}
+	
+	@Override
+	public Product registerProduct(Product product) {
+		return productDao.save(product);		
+		
+	}
 
 }

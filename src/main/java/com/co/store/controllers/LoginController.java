@@ -24,17 +24,33 @@ public class LoginController {
 	@Autowired
 	private IUserService userService;
 	
+	/**
+	 * GET method use to go to login page and use security config from spring-security
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/auth/login")
 	public String login(Model model) {
 		model.addAttribute("user", new User());
 		return "login";
 	}
+	
+	/**
+	 * GET method use to go to register page and use security config from spring-security
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/auth/register")
 	public String registerForm(Model model) {
 		model.addAttribute("user",new User());
 		return "register";
 	}
 	
+	/**
+	 * POST method use for redirect to register or login page and begin persist proccess
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/auth/register")
 	public String register(@Valid @ModelAttribute User user, BindingResult result, Model model) {
 		

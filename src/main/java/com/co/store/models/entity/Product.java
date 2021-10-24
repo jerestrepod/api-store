@@ -54,6 +54,35 @@ public class Product implements Serializable{
 	 */
 	private int inShoppingCar;
 	
+	
+	
+	/**
+	 * @param idProduct
+	 * @param productName
+	 * @param brand
+	 * @param price
+	 * @param stock
+	 * @param inShoppingCar
+	 */
+	public Product(Long idProduct, String productName, String brand, String price, int stock, int inShoppingCar) {
+		super();
+		this.idProduct = idProduct;
+		this.productName = productName;
+		this.brand = brand;
+		this.price = price;
+		this.stock = stock;
+		this.inShoppingCar = inShoppingCar;
+	}
+	
+	
+	/**
+	 * 
+	 */
+	public Product() {
+		super();
+	}
+
+
 	/**
 	 * @return the idProduct
 	 */
