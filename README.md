@@ -1,49 +1,41 @@
 # api-store
 
-Esta es mi solucion tecnologica para una api-rest que tiene como proposito el manejo de los productos de una tienda en relacion con un carro de compras,
-implementando tambien un proceso de registro y login para los usuarios. 
+Esta es mi solución tecnológica para una api-rest, que tiene como propósito el manejo de los productos de una tienda en relación con un carro de compras, implementando también, un proceso de registro y login para los usuarios. 
 
-## Como se abordo el problema 🦁
+## Cómo se abordó el problema 🦁
 
 Lo primero que hice fue dividir el desarrollo en 3 fases principales:
 
-  -> Implementacion del registro y el login de usuarios. tarea-1
+  -> Implementación del registro y el login de usuarios. Tarea-1
   
-  -> Creacion del servicio Rest junto con la logico de negocio. tarea-2
+  -> Creación del servicio Rest, junto con la lógica de negocio. Tarea-2
   
-  -> Implementacion de las pruebas unitarias y de integracion.  tarea-3
+  -> Implementación de las pruebas unitarias y de integración.  Tarea-3
   
 
-Teniendo en cuenta esto y viendo que el sistema puede tener una modularidad decidi usar la arquitectura de capas, me parecio importante que estamos
-hablando de una tiendo online asi que es probable que necesite escalabilidad a futuro.
+Teniendo en cuenta lo anterior, decidí usar una arquitectura de capas, porque el sistema puede tener una modularidad, y ya que estamos manejando una tienda online, me pareció importante tener en cuenta la escalabilidad y el crecimiento a futuro.
 
-Habiendo seleccionado la arquitectura decidi utilizar facade como patron principal de diseño, ya durante el desarrollo utilice algunos adicionales como 
-el singleton para manejar el encriptamiento de la clave de los usuarios,builder, bridge.
+Habiendo seleccionado la arquitectura, decidí utilizar Facade como patrón principal de diseño, y durante el desarrollo utilicé algunos patrones adicionales como Singleton, para manejar el encriptamiento de la clave de los usuarios. 
 
-TECNOLOGIAS:
-Elegi el lenguaje de programacion en el cual tengo mayor conocimiento (java 1.8), utilice el framework de spring boot, para el manejo de datos elegi MySql.
 
-TAREA 1 : Empece por el registro y login ya que para mi era la parte mas tediosa, implemente los formularios a partir de los templates de bootstrap, 
-          configure la libreria de seguridad de spring para este flujo y por ultimo se sincronizo esto con la BDD.
+
+
+Tarea 1 : Inicié por el registro y login, ya que para mí, era la parte mas tediosa, implementando los formularios a partir de los templates de Bootstrap, e hice la configuración           de las librerias de Spring-security para este flujo. Por último, se sincronizó con la BDD.
           
           
-TAREA 2 : En esta parte pense en hacer un modelo de datos con una tabla para los productos y otra para el carro de compras pero deseche la idea porque la
-          logica de negocia quedaba algo sucia y las relaciones entre la tablas no eran claras asi que utilice unos campos en producto para validar si 
-          el producto estaba en stoc y en el carro, la logica se explica en detalle dentro de la documentacion del codigo.
+Tarea 2 : Se crearon unos campos en la entidad de producto para la implementación de la lógica de negocio, teniendo en cuenta la relación del producto con el carro de compras,             esta la lógica se explica en detalle dentro de la documentación del código.
           
           
-TAREA 3 : Ya que la app estaba funcional solo faltaba importar junit y escribir las pruebas para la logica de la tarea 2.
+Tarea 3 : Finalmente, se escribieron las pruebas para validar la lógica desarrolada en la Tarea 2.
 
 
 
 ## Comenzando 🚀
 
-Aunque se pueden usar otras herramientas para ejecutar el proyecto recomiendo utilizar las mismas con las que fue desarrollado para evitar temas de compatibilidad.
+Nota: Aunque se pueden usar otras herramientas para ejecutar el proyecto, recomiendo utilizar las mismas con las que fue desarrollado para evitar problemas de compatibilidad.
 
-- Descargamos nuestro codigo fuente desde https://github.com/jerestrepod/api-store
-- Desde spring-tool importamos el proyecto desde la ubicacion que que descargamos el fuente
-
-
+- Descargamos nuestro código fuente desde https://github.com/jerestrepod/api-store
+- Importamos en Spring-tool el proyecto desde la ubicación en la que descargamos el fuente
 
 ### Pre-requisitos 📋
 
@@ -53,37 +45,39 @@ Aunque se pueden usar otras herramientas para ejecutar el proyecto recomiendo ut
 
 *admin de base de datos mySQL
 
+*maven repository
 
-## Ejecutando las pruebas Unitarias⚙️
 
-Las prubas unitarias se deben ejecutar antes de iniciar el proyecto.
-Para ello simplemente vamos a la clase com.co.store.BusinessUnitTest que se encuentra dentro del paquete de pruebas src/test/java,
-damos clic derecho en la clase y Run as -> JUnit test. de esta manera se ejecutaran las pruebas unitarias.
+## Ejecutando las pruebas unitarias⚙️
 
-NOTA: cada una de las funcionalidades que se esta probando esta documentada dentro del codigo.
+Las pruebas unitarias se deben ejecutar antes de iniciar el proyecto.
+Para ello, simplemente vamos a la clase com.co.store.BusinessUnitTest, que se encuentra dentro del paquete de pruebas src/test/java, 
+damos clic derecho en la clase y luego clic en Run as -> JUnit test. De esta manera, se ejecutaran las pruebas unitarias.
 
-## Ejecutando las pruebas Integracion⚙️
+NOTA: Cada una de las funcionalidades que se estan probando se encuentran documentadas dentro del código.
 
-Las prubas de integracion se deben ejecutar despues de iniciar el proyecto.
-Para ello simplemente vamos a la clase com.co.store.ApiStoreApplicationTests que se encuentra dentro del paquete de pruebas src/test/java,
-damos clic derecho en la clase y Run as -> JUnit test. de esta manera se ejecutaran las pruebas de integracion.
+## Ejecutando las pruebas de integración⚙️
 
-NOTA: cada una de las funcionalidades que se esta probando esta documentada dentro del codigo.
+Las pruebas de integración se deben ejecutar después de iniciar el proyecto, así que se debe terminar primero la configuración completa antes de poderlar ejecutar.
+Para ello, simplemente vamos a la clase com.co.store.ApiStoreApplicationTests, que se encuentra dentro del paquete de pruebas src/test/java,
+damos clic derecho en la clase y luego clic en Run as -> JUnit test. De esta manera se ejecutaran las pruebas de integración.
+
+NOTA: Cada una de las funcionalidades que se estan probando se encuentran documentadas dentro del código.
 
 ## Persistencia 📦
 
-Para que el rest despliegue correctamente es necesario configurar la conexion local a la BDD la cual se encuenta en src/main/resources/templates/aplication.yml
-y configurar los valores de url, username y password del datasource.
+Para que el api-rest despliegue correctamente, es necesario configurar la conexión local a la BDD, que se encuenta en src/main/resources/templates/aplication.yml,
+y configurar los valores del url, username y password en el datasource.
 
-Adicional se debe crear la base de datos que para nuestro caso se llama store de la siguiente manera.
+Adicionalmente, se debe crear la base de datos, que en nuestro caso se llama store, como se muestra a continuación:
 
 ```
  CREATE DATABASE store;
 ```
    
-A partir de esto ya podemos desplegar el api y generara automaticamente todos los mapeos de las entidades en la base de datos store.
+Habiendo hecho esto, podemos desplegar el api y este generará automáticamente todos los mapeos de las entidades en la base de datos.
 
-Una vez que tengamos nuestras entidades mapeadas podemos insertar los productos que deseemos a continuacion unos ejemplos:
+Una vez que tengamos nuestras entidades mapeadas, podemos insertar los productos que se necesiten. A continuación unos ejemplos:
 
 ```
 INSERT INTO store.products (brand, in_shopping_car, price, product_name, stock)
@@ -104,11 +98,11 @@ VALUES ("addidas", 0, "100usd", "basic tennis", 100);
 
 ## Despliegue y flujo inicial📦
 
-Ya teniendo las configuraciones basicas de nuestro proyecto procedemos simplemete a correrlo dando clic derecho en el proyecto Run as -> Spring Boot app.
+Teniendo las configuraciones básicas de nuestro proyecto, procedemos a correrlo dando clic derecho en el proyecto y luego clic en Run as -> Spring Boot app.
 
-Ahora que tenemos corriendo la api, vamos a un navegador e ingresamos a la raiz del proyecto http://localhost:8080/, alli nos apareceran 2 botones una para 
-hacer un registro de usuarios nuevos y otro para hacer login. al pasar el login nos redirecciona al index y cuando estemos alli ya podremos utilizar los metodos
-de nuestra api que podremos probar con las colecciones de POSTMAN que encontraras mas adelante. El flujo termina con un logout el cual cierra sesion y te redirije
+Ahora que tenemos corriendo la api, vamos a un navegador e ingresamos a la raíz del proyecto http://localhost:8080/, allí nos aparecerán 2 botones, uno para 
+hacer un registro de usuarios nuevos, y otro para hacer login. Al pasar el login nos redirecciona al index y cuando estemos allí, podremos utilizar los métodos
+de nuestra api. Estos se pueden probar con las colecciones de POSTMAN, que se encuentran mas adelante. El flujo termina con un logout, que cierra sesión y redirije
 al login.
 
 ## Construido con 🛠️
@@ -116,21 +110,24 @@ al login.
 
 * [Spring](https://spring.io/tools) - El framework web usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [WorkBench](https://www.mysql.com/products/workbench/) - Usado para administrar BDD
+* [WorkBench](https://www.mysql.com/products/workbench/) - Utilizado para administrar BDD
+* [Java 8](https://www.oracle.com/co/java/technologies/javase/javase8-archive-downloads.html) - version java
 
 
 ## Colecciones POSTMAN 📖
 
+En esta colección pública se encuentran las consultas a los métodos expuestos por el api:
+
 https://www.postman.com/jerestrepod/workspace/test-api-store
 
-En esta coleccion publica se encuentran los metodos expuestos por el api, tener en cuenta que hay que tener corriedo el api localmente para poderlos consumir,
-adicional el metodo addProduct y removeProduct tienen al final de sus url un productId de prueba el cual se debe cambiar segun sea el caso.
+Se debe correr el api localmente para poder consumir los métodos, adicionalmente, el método addProduct y removeProduct tienen al final de sus url un productId de prueba, 
+que se debe cambiar según sea el caso.
 
-Para el metodo updateProduct el body tambien viene como un ejemplo pero los datos se deben cambiar segun sea el caso.
+Con respecto al método updateProduct, el body viene también como un ejemplo, pero los datos se deben cambiar según sea el caso ( Se pueden tomar de la respuesta de allProducts) 
 
 ## Versionado 📌
 
-Uso [git](https://git-scm.com/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/jerestrepod/api-store).
+Se utilizó [git](https://git-scm.com/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/jerestrepod/api-store).
 
 ## Autores ✒️
 
